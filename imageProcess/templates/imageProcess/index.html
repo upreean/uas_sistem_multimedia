@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page }} | {{ title }}</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+  </head>
+  <body>
+    <div
+      class="banner"
+      style="
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+          ),
+          url(../static/images/background.png);
+      "
+    >
+      <div class="navbar">
+        <div class="logo">{{ title }}</div>
+        <ul>
+          {% for link,name in nav %}
+          <li>
+            <a href="{{ link }}">{{ name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="container">
+        <h2>Image Compression</h2>
+        <p>Choose Algorithm</p>
+        <div id="algorithm-options" class="hidden-options">
+          <a href="discreateforier/">
+            <button>Discrete Fourier Transform Algorithm<span></span></button>
+          </a>
+          <a href="discreatecosine/">
+            <button>Discrete Cosine Transform Algorithm<span></span></button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

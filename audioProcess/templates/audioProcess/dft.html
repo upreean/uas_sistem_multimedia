@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page }} | {{ title }}</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+  </head>
+  <body>
+    <div
+      class="banner"
+      style="
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+          ),
+          url(../../static/images/background.png);
+      "
+    >
+      <div class="navbar">
+        <div class="logo">{{ title }}</div>
+        <ul>
+          {% for link,name in nav %}
+          <li>
+            <a href="{{ link }}">{{ name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="container">
+        <h2>UPLOAD FILE</h2>
+        <p>Maksimal 10 Mb</p>
+        <div>
+          <label for="file-upload" class="file-label"
+            >Pilih File<span></span
+          ></label>
+          <input id="file-upload" type="file" class="file-input" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
